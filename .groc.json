@@ -1,0 +1,4 @@
+{
+  "glob": ["src/muckraking.coffee"],
+  "github": true
+}

@@ -1,6 +1,10 @@
-_.mixin
-    inArray: (arr, val) ->
-        (_.indexOf(arr, val) > -1)
+Underscore Muckraking
+=====================
 
-    quoteVal: (val) ->
-        _.template '"<%= val >"', {'val', val}
+    _.mixin
+
+        inArray: (arr, val) ->
+            (_.indexOf(arr, val) > -1)
+
+        quoteVal: (val) ->
+            _.template '"<%= val >"', {'val', val}

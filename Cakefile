@@ -13,7 +13,6 @@ COFFEE_OUTPUT_DIR = "#{__dirname}"
 NODE_MODULES = path.join __dirname, 'node_modules/'
 NODE_BIN_DIR = "#{NODE_MODULES}.bin/"
 
-console.log COFFEE_SRC_DIR
 
 option '-d', '--dev', 'Run tasks in dev mode (defaults to false)'
 
@@ -28,17 +27,15 @@ buildCoffee = (file) ->
   baseName = path.basename file
   compiledName = baseName.replace('.coffee', '.js')
   minName = baseName.replace('.coffee', '.min.js')
-  exec "#{NODE_BIN_DIR}coffee", ['-c', '--map', '-o', "#{COFFEE_OUTPUT_DIR}", file]
+  exec "#{NODE_BIN_DIR}coffee", ['-l', '-c', '--map', '-o', "#{COFFEE_OUTPUT_DIR}", file]
   shelljs.exec "#{NODE_BIN_DIR}uglifyjs -o #{COFFEE_OUTPUT_DIR}/#{minName} #{COFFEE_OUTPUT_DIR}/#{compiledName}"
 
+  # shelljs.exec "#{NODE_BIN_DIR}docco #{file} -o #{COFFEE_OUTPUT_DIR}"
 
 
-task 'build:docs', "build the #{pkgmeta.name} docs", ->
-  invoke 'build:docs:coffee'
-  invoke 'build:docs:less'
 
 
-task 'build:docs:coffee', "build the #{pkgmeta.name} CoffeeScript docs", ->
+task 'build:docs', "build the #{pkgmeta.name} CoffeeScript docs", ->
   for f in findCoffee(COFFEE_SRC_DIR)
     dir = path.relative COFFEE_SRC_DIR, path.dirname(f)
     exec "#{NODE_BIN_DIR}docco", [f, '-o', "./docs/coffee/#{dir}"]
