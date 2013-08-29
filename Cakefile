@@ -6,6 +6,7 @@ pkgmeta = require './package'
 {quote} = require 'shell-quote'
 watchr = require 'watchr'
 path = require 'path'
+fs = require 'fs'
 
 
 COFFEE_SRC_DIR = "#{__dirname}/src"
@@ -29,6 +30,8 @@ buildCoffee = (file) ->
   minName = baseName.replace('.coffee', '.min.js')
   exec "#{NODE_BIN_DIR}coffee", ['-l', '-c', '--map', '-o', "#{COFFEE_OUTPUT_DIR}", file]
   shelljs.exec "#{NODE_BIN_DIR}uglifyjs -o #{COFFEE_OUTPUT_DIR}/#{minName} #{COFFEE_OUTPUT_DIR}/#{compiledName}"
+
+  fs.createReadStream('src/muckraking.coffee').pipe(fs.createWriteStream('README.md'));
 
   # shelljs.exec "#{NODE_BIN_DIR}docco #{file} -o #{COFFEE_OUTPUT_DIR}"
 
