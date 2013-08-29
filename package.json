@@ -1,0 +1,27 @@
+{
+  "name": "underscore-muckraking",
+  "version": "0.0.1",
+  "description": "Extension utilities for underscore.",
+  "author": "Ryan Bagwell <ryan@ryanbagwell.com>",
+  "main": "./muckraking.min",
+  "dependencies": {
+    "backbone": ">=0.5.x",
+    "underscore": ">=1.1.x",
+    "coffee-script": ">=1.x.x",
+     "uglify-js": "1.2.2"
+  },
+  "jam": {
+    "dependencies": {
+      "jquery": ">1.4.2",
+      "underscore": ">1.3.1"
+    },
+    "main":"muckraking.js",
+    "shim": {
+        "deps": ["underscore"]
+    },
+    "include": [
+        "muckraking.js",
+        "README.md"
+    ]
+  }
+}
