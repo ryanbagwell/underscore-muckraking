@@ -28,12 +28,10 @@ buildCoffee = (file) ->
   baseName = path.basename file
   compiledName = baseName.replace('.coffee', '.js')
   minName = baseName.replace('.coffee', '.min.js')
-  exec "#{NODE_BIN_DIR}coffee", ['-l', '-c', '--map', '-o', "#{COFFEE_OUTPUT_DIR}", file]
+  shelljs.exec "#{NODE_BIN_DIR}coffee -l -c --map -o #{COFFEE_OUTPUT_DIR} #{file}"
   shelljs.exec "#{NODE_BIN_DIR}uglifyjs -o #{COFFEE_OUTPUT_DIR}/#{minName} #{COFFEE_OUTPUT_DIR}/#{compiledName}"
-
   fs.createReadStream('src/muckraking.coffee').pipe(fs.createWriteStream('README.md'));
 
-  # shelljs.exec "#{NODE_BIN_DIR}docco #{file} -o #{COFFEE_OUTPUT_DIR}"
 
 
 
