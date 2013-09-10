@@ -10,10 +10,11 @@
     },
     "main":"muckraking.min.js",
     "shim": {
-        "deps": ["underscore"]
+        "deps": ["underscore", "jquery"]
     },
     "include": [
         "muckraking.js",
+        "muckraking.min.js",
         "README.md",
         "muckraking.map"
     ]
