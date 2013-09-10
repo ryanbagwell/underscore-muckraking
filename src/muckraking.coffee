@@ -97,5 +97,5 @@ Add a dollar sign to a number or string and add a comma as the thousandths seper
 Return defaultVal if val is null or undefined
 
         default: (val, defaultVal) ->
-            # return defaultVal if (_.isNull(val) || _.isUndefined(val) || _.isEmpty(val))
-            # val
+            return defaultVal if (_.isNull(val) || _.isUndefined(val) || _.isEmpty(val))
+            val

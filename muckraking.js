@@ -71,7 +71,12 @@
       val.splice(1, 0, ',');
       return '$' + val.join('');
     },
-    "default": function(val, defaultVal) {}
+    "default": function(val, defaultVal) {
+      if (_.isNull(val) || _.isUndefined(val) || _.isEmpty(val)) {
+        return defaultVal;
+      }
+      return val;
+    }
   });
 
 }).call(this);
