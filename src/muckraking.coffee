@@ -3,7 +3,6 @@ Underscore Muckraking
 
 A collection of utilities for Underscore.js written as underscore mixins
 
-
     _.mixin
 
 ####_.resizeToFill(wrapset, containerEl, callback)
@@ -98,5 +97,5 @@ Add a dollar sign to a number or string and add a comma as the thousandths seper
 Return defaultVal if val is null or undefined
 
         default: (val, defaultVal) ->
-            return defaultVal if (_.isNull(val) || _.isUndefined(val))
-            val
+            # return defaultVal if (_.isNull(val) || _.isUndefined(val) || _.isEmpty(val))
+            # val
