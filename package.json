@@ -1,6 +1,6 @@
 {
   "name": "underscore-muckraking",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Extension utilities for underscore.",
   "author": "Ryan Bagwell <ryan@ryanbagwell.com>",
   "jam": {

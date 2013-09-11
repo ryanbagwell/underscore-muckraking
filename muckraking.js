@@ -76,6 +76,11 @@
         return defaultVal;
       }
       return val;
+    },
+    inViewport: function(el) {
+      var elBounds;
+      elBounds = el.getBoundingClientRect();
+      return elBounds.top >= 0 && elBounds.left >= 0 && elBounds.top <= (window.innerHeight || document.documentElement.clientHeight) && elBounds.left <= (window.innerWidth || document.documentElement.clientWidth);
     }
   });
 

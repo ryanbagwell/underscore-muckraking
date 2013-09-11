@@ -99,3 +99,20 @@ Return defaultVal if val is null or undefined
         default: (val, defaultVal) ->
             return defaultVal if (_.isNull(val) || _.isUndefined(val) || _.isEmpty(val))
             val
+
+
+####_.inViewport(el)
+Return true if the top-left corner of el is within the viewport. Otherwise, return false.
+Method taken from John Resig in this [Stack Overflow]("http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport") question.
+
+        inViewport: (el) ->
+            elBounds = el.getBoundingClientRect()
+
+            (
+                elBounds.top >= 0 and
+                elBounds.left >= 0 and
+                elBounds.top <= (window.innerHeight || document.documentElement.clientHeight) and
+                elBounds.left <= (window.innerWidth || document. documentElement.clientWidth)
+            )
+
+

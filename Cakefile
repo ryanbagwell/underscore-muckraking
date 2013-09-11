@@ -36,26 +36,12 @@ buildCoffee = (file) ->
 
 
 
-
-
-task 'build:docs', "build the #{pkgmeta.name} CoffeeScript docs", ->
-  for f in findCoffee(COFFEE_SRC_DIR)
-    dir = path.relative COFFEE_SRC_DIR, path.dirname(f)
-    exec "#{NODE_BIN_DIR}docco", [f, '-o', "./docs/coffee/#{dir}"]
-
-
-
-task 'build:coffee', ->
+task 'build', ->
   cd COFFEE_SRC_DIR
   for f in findCoffee '.'
     console.log "Compiling #{f}..."
     buildCoffee f
   cd __dirname
-
-
-task 'build', ->
-  invoke 'build:code'
-  invoke 'build:docs'
 
 
 task 'watch', ->
