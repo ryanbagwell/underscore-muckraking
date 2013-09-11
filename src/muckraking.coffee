@@ -106,7 +106,7 @@ Return true if the top-left corner of el is within the viewport. Otherwise, retu
 Method taken from John Resig in this [Stack Overflow]("http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport") question.
 
         inViewport: (el) ->
-            elBounds = el.getBoundingClientRect()
+            elBounds = $(el).get(0).getBoundingClientRect()
 
             (
                 elBounds.top >= 0 and
